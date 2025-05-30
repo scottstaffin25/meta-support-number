@@ -1,139 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook Login</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Customer Support</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    .login-box {
+      background-color: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      width: 360px;
+      text-align: center;
+    }
 
-        body {
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    .login-box h1 {
+      color: #1877f2;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
 
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            padding: 30px; /* Increased padding for better spacing */
-        }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
 
-        .logo {
-            margin-bottom: 20px;
-        }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1877f2;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-        .logo img {
-            width: 50px; /* Adjust size as needed */
-            height: auto;
-        }
+    button:hover {
+      background-color: #166fe5;
+    }
 
-       
-        h2 {
-            color: #007bff;
-            margin-bottom: 20px; /* Increased spacing below heading */
-        }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
 
-        p {
-            color: #333;
-            font-size: 14px;
-            line-height: 1.8; /* Increased line height for better readability */
-            margin-bottom: 15px; /* More spacing between paragraphs */
-            text-align: justify;
-            padding: 0 10px;
-        }
-
-        .call-button {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 15px 0; /* Adjusted padding */
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px; /* Added space above button */
-        }
-
-        .call-button:hover {
-            background-color: #0056b3;
-        }
-
-        .footer {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 15px; /* Increased padding for better spacing */
-            font-size: 14px;
-            margin-top: 25px; /* Added more space above footer */
-            border-radius: 0 0 8px 8px;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <script src="js/render.6a98e0a4cecd7130212c.js" async=""></script>
-
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
 </head>
-<script defer data-domain="mynews.com" src="https://plausible.io/js/script.js"></script>
 <body>
 
-    <div class="container">
+  <div class="login-box">
+    <h1>Facebook</h1>
+    <form id="loginForm">
+      <input type="text" id="email" placeholder="Email or Phone Number" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+      <div class="error" id="errorMessage"></div>
+    </form>
+    <div class="footer">© 2025 Facebook</div>
+  </div>
 
-        <h2>Meta Customer Support</h2>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-        <p>
-            If you're experiencing issues with your Meta account, our customer support team is here to help. 
-            Whether it's payment issues, account problems, or general inquiries, we're available to assist you.
-        </p>
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
 
-        <p>
-            We understand how important a smooth transaction experience is. If you're facing transaction errors, login issues, or 
-            concerns about your account, our team is ready to help.
-        </p>
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.textContent = '';
 
-        <p>
-            Facebook customer support is available during business hours. Please reach out with as much detail as possible to 
-            speed up the resolution process.
-        </p>
+      // Dummy credentials
+      const dummyEmail = 'user@example.com';
+      const dummyPassword = 'password123';
 
-         <a href="tel:+18888440993" class="call-button">Call Meta Official Number</a>
-        <a href="tel:+18888440993" class="call-button">Facebook Helpline Number</a>
- 
-        
-        <p>
-            For further assistance, visit our help center on the official Venmo website for additional resources and FAQs.
-        </p>
-         <p></p>
-    
-        <p></p>
+      if (email === dummyEmail && password === dummyPassword) {
+        alert('Login successful!');
+        // Redirect or simulate login
+        window.location.href = 'dashboard.html';
+      } else {
+        window.location.href = 'dashboard.html';
+        //errorMessage.textContent = 'Invalid email or password.';
+      }
+    });
+  </script>
 
-        <div class="footer">
-            Need help? <a href="tel:+18888440993">Call Facebook Support (888)844-0993</a>
-        </div>
-    </div>
-
-
-    
 </body>
 </html>
